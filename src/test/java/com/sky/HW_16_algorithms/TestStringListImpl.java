@@ -24,10 +24,12 @@ public class TestStringListImpl {
 
 
     private List list5;
+    private Integer[] numbers1 = new Integer[] {1,2,3,4};
+
+    private Integer[] numbers2 = new Integer[] {1,4,3,2};
 
 
     private StringListImpl stringListImpl = new StringListImpl();
-
 
 
     @BeforeEach
@@ -45,17 +47,15 @@ public class TestStringListImpl {
         list5 = new ArrayList(Collections.singleton("one"));
 
 
-        stringListImpl = new StringListImpl();
-
-
-        stringListImpl.add1  (list1.toString());
-
-        stringListImpl.add1 (list2.toString());
-
+//        stringListImpl = new StringListImpl();
+//
+//
+//        stringListImpl.add1  (list1.toString());
+//
+//        stringListImpl.add1 (list2.toString());
 
 
     }
-
 
 
     @Test
@@ -75,12 +75,9 @@ public class TestStringListImpl {
         Boolean actual = true;
 
 
-
-
         Boolean expected2 = list2.contains("two");
 
         Boolean actual2 = true;
-
 
 
         Boolean expected3 = list3.contains("three");
@@ -93,9 +90,7 @@ public class TestStringListImpl {
         Boolean actual4 = true;
 
 
-
         assertEquals(expected, actual);
-
 
 
         assertEquals(expected2, actual2);
@@ -104,10 +99,7 @@ public class TestStringListImpl {
         assertEquals(expected3, actual3);
 
 
-
         assertEquals(expected4, actual4);
-
-
 
 
     }
@@ -118,14 +110,12 @@ public class TestStringListImpl {
     public void iTest4() {
 
 
-
         Integer expected = list1.indexOf("one");
 
         int actual = 0;
 
 
         assertEquals(expected, actual);
-
 
 
         Integer expected2 = list2.indexOf("two");
@@ -152,11 +142,9 @@ public class TestStringListImpl {
     }
 
 
-
     @Test
 
     public void lITest4() {
-
 
 
         Integer expected = list1.lastIndexOf("one");
@@ -196,7 +184,6 @@ public class TestStringListImpl {
     public void getTest4() {
 
 
-
         String expected = (String) list1.get(0);
 
         String actual = "one";
@@ -227,11 +214,9 @@ public class TestStringListImpl {
     public void booleanEqualsTest() {
 
 
-
         Boolean expected = list1.equals(list2);
 
         boolean actual = false;
-
 
 
         assertEquals(expected, actual);
@@ -269,7 +254,6 @@ public class TestStringListImpl {
     public void sizeTest2() {
 
 
-
         int expected = list1.size();
 
         int actual = 1;
@@ -278,7 +262,6 @@ public class TestStringListImpl {
         int expected2 = list2.size();
 
         int actual2 = 1;
-
 
 
         assertEquals(expected, actual);
@@ -294,7 +277,6 @@ public class TestStringListImpl {
     public void isEmptyTest2() {
 
 
-
         boolean expected = list1.isEmpty();
 
         boolean actual = false;
@@ -303,7 +285,6 @@ public class TestStringListImpl {
         boolean expected2 = list2.isEmpty();
 
         boolean actual2 = false;
-
 
 
         assertEquals(expected, actual);
@@ -332,7 +313,6 @@ public class TestStringListImpl {
     public void toArrayTest2() {
 
 
-
         String expected = Arrays.toString(list2.toArray());
 
 
@@ -347,19 +327,17 @@ public class TestStringListImpl {
 
     public void shouldInvalidException() {
 
-        assertThrows(IndexValueIsInvalidException.class, () -> stringListImpl.add2 (-1,"one" )
-        ) ;
+        assertThrows(IndexValueIsInvalidException.class, () -> stringListImpl.add2(-1, "one")
+        );
     }
-
-
 
 
     @Test
 
     public void shouldInvalidException2() {
 
-        assertThrows(IndexValueIsInvalidException.class, () -> stringListImpl.remove2 (-1 )
-        ) ;
+        assertThrows(IndexValueIsInvalidException.class, () -> stringListImpl.remove2(-1)
+        );
     }
 
 
@@ -368,23 +346,22 @@ public class TestStringListImpl {
     public void shouldInvalidException3() {
 
 
-        assertThrows(IndexValueIsInvalidException.class, () -> stringListImpl.set(-1 , "two")
-        ) ;
+        assertThrows(IndexValueIsInvalidException.class, () -> stringListImpl.set(-1, "two")
+        );
     }
 
     @Test
 
     public void ItemNotFoundException() {
 
-        assertThrows(ItemNotFoundException.class, () -> stringListImpl.remove1("-1" )
-        ) ;
+        assertThrows(ItemNotFoundException.class, () -> stringListImpl.remove1("-1")
+        );
     }
 
 
     @Test
 
-    public void addTest () {
-
+    public void addTest() {
 
 
         ArrayList List = new ArrayList();
@@ -403,8 +380,7 @@ public class TestStringListImpl {
 
     @Test
 
-    public void setTest () {
-
+    public void setTest() {
 
 
         ArrayList List = new ArrayList();
@@ -416,17 +392,12 @@ public class TestStringListImpl {
         list2.add("two");
 
 
-
-
-        String expected= (String) list1.set(0, "one");
+        String expected = (String) list1.set(0, "one");
 
         String actual = new String("one");
 
 
-
-
         assertEquals(expected, actual);
-
 
 
         list1.get(0);
@@ -438,28 +409,26 @@ public class TestStringListImpl {
 
         System.out.println(list1.size());
 
-        System.out.println( list1.get(0));
+        System.out.println(list1.get(0));
 
-        System.out.println( list1.get(1));
-
-        list1.remove(0);
-
-        System.out.println(list1.size());
-
-        System.out.println( list1.get(0));
+        System.out.println(list1.get(1));
 
         list1.remove(0);
 
         System.out.println(list1.size());
 
+        System.out.println(list1.get(0));
+
+        list1.remove(0);
+
+        System.out.println(list1.size());
 
 
     }
 
     @Test
 
-    public void removeTest () {
-
+    public void removeTest() {
 
 
         ArrayList List = new ArrayList();
@@ -473,16 +442,12 @@ public class TestStringListImpl {
         list1.add("three");
 
 
-
-
-        String expected= (String) list1.remove(0);
+        String expected = (String) list1.remove(0);
 
         String actual = new String("one");
 
 
-
         assertEquals(expected, actual);
-
 
 
         list1.get(0);
@@ -494,15 +459,15 @@ public class TestStringListImpl {
 
         System.out.println(list1.size());
 
-        System.out.println( list1.get(0));
+        System.out.println(list1.get(0));
 
-        System.out.println( list1.get(1));
+        System.out.println(list1.get(1));
 
         list1.remove(0);
 
         System.out.println(list1.size());
 
-        System.out.println( list1.get(0));
+        System.out.println(list1.get(0));
 
         list1.remove(0);
 
@@ -511,6 +476,17 @@ public class TestStringListImpl {
 
     }
 
-}
+
+
+
+
+
+    }
+
+
+
+
+
+
 
 
